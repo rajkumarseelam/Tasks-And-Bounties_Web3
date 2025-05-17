@@ -37,7 +37,7 @@ A Web3 decentralized task marketplace built on Hedera Testnet where clients can 
    - Navigate to [Remix IDE](https://remix.ethereum.org/)
 
 2. **Create Contract File**
-   - Create a new file named `HederaTaskMarketplace.sol` and update with solidity code
+   - Create a new file named `HederaTaskMarketplace.sol` and update with [solidity code](https://github.com/rajkumarseelam/Tasks-And-Bounties_Web3/blob/main/solidity-file.sol)
 
 3. **Compile Contract**
    - Switch to the Solidity Compiler tab
