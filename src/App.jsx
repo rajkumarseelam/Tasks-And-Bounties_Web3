@@ -66,10 +66,22 @@ export default function App() {
   );
 
   //  Open tasks for me (only if task is Open and I have NOT Claimed/Submitted)
+  // const openTasksForMe = useMemo(
+  //   () => tasks.filter(t => {
+  //     if (t.state !== 0) return false; // not Open
+  //     if (t.client.toLowerCase() === me?.toLowerCase()) return false; // creator should not see
+  //     const mySub = t.submissions.find(s => s.worker.toLowerCase() === me?.toLowerCase());
+  //     if (!mySub) return true; // no submission yet
+  //     return mySub.submissionStatus === 0; // submission exists but status None
+  //   }),
+  //   [tasks, me]
+  // );
+
   const openTasksForMe = useMemo(
     () => tasks.filter(t => {
       if (t.state !== 0) return false; // not Open
       if (t.client.toLowerCase() === me?.toLowerCase()) return false; // creator should not see
+      if (Date.now() > t.deadline * 1000) return false; // deadline has passed
       const mySub = t.submissions.find(s => s.worker.toLowerCase() === me?.toLowerCase());
       if (!mySub) return true; // no submission yet
       return mySub.submissionStatus === 0; // submission exists but status None
